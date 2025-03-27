@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
+	"crud/controller"
 	"crud/db"
 
 	"github.com/gin-gonic/gin"
@@ -22,6 +23,9 @@ func (a *App) CreateConnection() {
 
 func (a *App) Routes() {
 	r := gin.Default()
+	userController := controller.NewUserController(a.DB)
+
+	r.POST("/user", userController.Create)
 
 	a.Router = r
 }
