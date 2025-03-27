@@ -15,3 +15,7 @@ type ResponseUser struct {
 	Id       int64  `json:"id"`
 	Username string `json:"username"`
 }
+
+type UserUri struct {
+	ID uint `uri:"id" binding:"required,number"`
+}

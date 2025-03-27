@@ -26,6 +26,9 @@ func (a *App) Routes() {
 	userController := controller.NewUserController(a.DB)
 
 	r.POST("/user", userController.Create)
+	r.PUT("/user/:id", userController.Update)
+	r.DELETE("/user/:id", userController.Delete)
+	r.GET("/user", userController.GetAll)
 
 	a.Router = r
 }
